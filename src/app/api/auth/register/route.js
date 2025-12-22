@@ -16,7 +16,7 @@ export async function POST(request) {
   }
 
   const newUser = {
-    id: users.length + 1,
+    id: Date.now().toString(),
     name,
     email,
     password, // hash in real
@@ -24,6 +24,7 @@ export async function POST(request) {
     contact
   }
   users.push(newUser)
+  console.log('New user registered:', { id: newUser.id, email: newUser.email })
 
   return NextResponse.json({ message: 'User registered successfully' })
 }

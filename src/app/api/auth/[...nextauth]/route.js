@@ -15,7 +15,7 @@ export const authOptions = {
       async authorize(credentials) {
         const user = users.find(u => u.email === credentials.email && u.password === credentials.password)
         if (user) {
-          return { id: user.id, name: user.name, email: user.email }
+          return { id: user.id.toString(), name: user.name, email: user.email }
         }
         return null
       }
