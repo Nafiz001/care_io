@@ -6,7 +6,9 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request) {
   try {
-    const { serviceId, duration, location, address, totalCost, userId } = await request.json()
+    const body = await request.json()
+    console.log('Booking POST body:', body)
+    const { serviceId, duration, location, address, totalCost, userId } = body
 
     const service = services.find(s => s.id === serviceId)
     if (!service) {
@@ -27,12 +29,18 @@ export async function POST(request) {
     }
 
     bookings.push(booking)
+    console.log('Booking created, total bookings:', bookings.length, 'booking:', booking)
 
     // Send email (don't fail if email fails)
     try {
       const user = users.find(u => u.id == userId)
+      if (!user) console.log('No user found for userId:', userId)
       if (user && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+        console.log('Attempting to send invoice email to:', user.email)
         await sendInvoiceEmail(user.email, booking)
+        console.log('Invoice email attempted for booking id:', booking.id)
+      } else {
+        console.log('Email not sent: missing user or email config')
       }
     } catch (emailError) {
       console.error('Failed to send email:', emailError)
