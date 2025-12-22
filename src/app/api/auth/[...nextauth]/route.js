@@ -47,15 +47,21 @@ export const authOptions = {
             contact: ''
           }
           users.push(newUser)
+          // ensure the NextAuth `user` object carries our DB id
+          user.id = newUser.id
+        } else {
+          // attach existing id so jwt callback can pick it up
+          user.id = existingUser.id
         }
       }
       return true
     },
     async jwt({ token, user, account }) {
       if (user) {
-        token.id = user.id
+        if (user.id) token.id = user.id
+        if (user.email) token.email = user.email
       }
-      // For Google users, find or assign ID
+      // For Google users, find or assign ID using email
       if (account?.provider === 'google') {
         const dbUser = users.find(u => u.email === token.email)
         if (dbUser) {
