@@ -20,19 +20,38 @@ export default function MyBookings() {
   }, [session, status, router])
 
   const fetchBookings = async () => {
-    const res = await fetch(`/api/bookings?userId=${session.user.id}`)
-    const data = await res.json()
-    setBookings(data)
+    try {
+      const res = await fetch(`/api/bookings?userId=${session.user.id}`)
+      if (!res.ok) {
+        console.error('Failed to fetch bookings')
+        setBookings([])
+        return
+      }
+      const data = await res.json()
+      setBookings(data)
+    } catch (error) {
+      console.error('Error fetching bookings:', error)
+      setBookings([])
+    }
   }
 
   const handleCancel = async (bookingId) => {
     if (confirm('Are you sure you want to cancel this booking?')) {
-      await fetch('/api/booking/cancel', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bookingId })
-      })
-      fetchBookings() // refetch
+      try {
+        const res = await fetch('/api/booking/cancel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ bookingId })
+        })
+        if (res.ok) {
+          fetchBookings() // refetch
+        } else {
+          alert('Failed to cancel booking. Please try again.')
+        }
+      } catch (error) {
+        console.error('Error cancelling booking:', error)
+        alert('An error occurred. Please try again.')
+      }
     }
   }
 
