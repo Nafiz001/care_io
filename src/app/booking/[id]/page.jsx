@@ -47,24 +47,28 @@ export default function Booking({ params }) {
       return
     }
     setLoading(true)
-    const location = `${form.division}, ${form.district}, ${form.city}, ${form.area}`
-    const res = await fetch('/api/booking', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        serviceId: params.id,
-        duration: form.duration,
-        location,
-        address: form.address,
-        totalCost,
-        userId: session.user.id
+    try {
+      const location = `${form.division}, ${form.district}, ${form.city}, ${form.area}`
+      const res = await fetch('/api/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          serviceId: params.id,
+          duration: form.duration,
+          location,
+          address: form.address,
+          totalCost,
+          userId: session.user.id
+        })
       })
-    })
-    if (res.ok) {
-      alert('Booking confirmed! Check your email for the invoice.')
-      router.push('/my-bookings')
-    } else {
-      alert('Booking failed. Please try again.')
+      if (res.ok) {
+        alert('Booking confirmed! Check your email for the invoice.')
+        router.push('/my-bookings')
+      } else {
+        alert('Booking failed. Please try again.')
+      }
+    } catch (error) {
+      alert('An error occurred. Please try again.')
     }
     setLoading(false)
   }

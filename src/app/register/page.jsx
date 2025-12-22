@@ -24,16 +24,21 @@ export default function Register() {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const res = await fetch('/api/auth/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
-    })
-    const data = await res.json()
-    if (res.ok) {
-      router.push('/login?registered=true')
-    } else {
-      setError(data.error)
+    try {
+      const res = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      })
+      if (!res.ok) {
+        const data = await res.json()
+        setError(data.error || 'Registration failed')
+      } else {
+        const data = await res.json()
+        router.push('/login?registered=true')
+      }
+    } catch (error) {
+      setError('An error occurred. Please try again.')
     }
     setLoading(false)
   }
