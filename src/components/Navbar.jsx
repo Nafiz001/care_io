@@ -23,16 +23,16 @@ export default function Navbar() {
           </button>
         </div>
         <div className={`md:flex md:items-center md:space-x-2 ${menuOpen ? 'flex flex-col absolute top-20 left-0 w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 p-6 shadow-xl' : 'hidden md:flex'}`}>
-          <Link href="/" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link href="#services" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Services</Link>
+          <Link href="/" className="px-4 py-2 rounded-lg hover:bg-white hover:text-blue-500 hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link href="#services" className="px-4 py-2 rounded-lg hover:bg-white hover:text-blue-500  hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Services</Link>
           {session ? (
             <>
-              <Link href="/my-bookings" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>My Bookings</Link>
+              <Link href="/my-bookings" className="px-4 py-2 rounded-lg hover:bg-white hover:text-blue-500  hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>My Bookings</Link>
               <button onClick={() => { signOut(); setMenuOpen(false); }} className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition font-semibold bg-transparent border-none text-left">Logout 👋</button>
             </>
           ) : (
             <>
-              <Link href="/login" className="px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Login</Link>
+              <Link href="/login" className="px-4 py-2 rounded-lg text-black bg-white bg-opacity-10 hover:bg-opacity-20 transition font-semibold" onClick={() => setMenuOpen(false)}>Login</Link>
               <Link href="/register" className="px-4 py-2 rounded-lg bg-yellow-400 text-purple-900 hover:bg-yellow-300 transition font-bold" onClick={() => setMenuOpen(false)}>Get Started</Link>
             </>
           )}
