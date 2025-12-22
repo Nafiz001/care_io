@@ -33,7 +33,8 @@ const serviceFeatures = {
 }
 
 export async function generateMetadata({ params }) {
-  const service = services.find(s => s.id === params.id)
+  const { id } = await params
+  const service = services.find(s => s.id === id)
   if (!service) return { title: 'Service Not Found' }
   return {
     title: `${service.name} - Care.IO`,
@@ -41,14 +42,15 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default function ServiceDetail({ params }) {
-  const service = services.find(s => s.id === params.id)
+export default async function ServiceDetail({ params }) {
+  const { id } = await params
+  const service = services.find(s => s.id === id)
   if (!service) {
     notFound()
   }
 
-  const icon = serviceIcons[params.id] || '💼'
-  const features = serviceFeatures[params.id] || []
+  const icon = serviceIcons[id] || '💼'
+  const features = serviceFeatures[id] || []
 
   return (
     <div className="bg-gray-50 py-16">
@@ -83,7 +85,7 @@ export default function ServiceDetail({ params }) {
 
           <div className="text-center">
             <Link 
-              href={`/booking/${service.id}`} 
+              href={`/booking/${id}`} 
               className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 inline-block font-bold text-lg transition"
             >
               Book This Service Now
