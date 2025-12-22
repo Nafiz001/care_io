@@ -1,5 +1,7 @@
+'use client'
+
 import { Geist, Geist_Mono } from "next/font/google";
-import { SessionProvider } from 'next-auth/react'
+import { Providers } from '@/components/providers'
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,20 +14,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Care.IO - Baby Sitting & Elderly Care Service Platform",
-  description: "Reliable and trusted care services for children, elderly, and family members. Book babysitting, elderly care, and special care services easily.",
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Care.IO - Baby Sitting & Elderly Care Service Platform</title>
+        <meta name="description" content="Reliable and trusted care services for children, elderly, and family members. Book babysitting, elderly care, and special care services easily." />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SessionProvider>
+        <Providers>
           {children}
-        </SessionProvider>
+        </Providers>
       </body>
     </html>
   );
