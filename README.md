@@ -1,8 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Care.IO - Baby Sitting & Elderly Care Service Platform
+
+A Next.js web application providing reliable and trusted care services for children, elderly, and family members.
+
+## Features
+
+- **Responsive Design**: Mobile, tablet, and desktop support
+- **User Authentication**: Email/Password and Google Social Login
+- **Dynamic Booking System**: Select duration, location, and calculate costs automatically
+- **Booking Management**: Track bookings with status (Pending/Confirmed/Completed/Cancelled)
+- **Email Notifications**: Automatic invoice emails after booking
+- **Service Pages**: Detailed information for Baby Care, Elderly Care, and Sick People Care
+
+## Tech Stack
+
+- **Framework**: Next.js 16.1.0
+- **Styling**: Tailwind CSS
+- **Authentication**: NextAuth.js
+- **Email**: Nodemailer
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, configure environment variables in `.env.local`:
+
+```env
+NEXTAUTH_SECRET=your-secret-key-here
+NEXTAUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-specific-password
+```
+
+Run the development server:
 
 ```bash
 npm run dev
