@@ -1,14 +1,23 @@
 import nodemailer from 'nodemailer'
 
-const transporter = nodemailer.createTransporter({
-  service: 'gmail', // or your email service
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-})
+// Only create transporter if credentials are available
+let transporter = null
+if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+  transporter = nodemailer.createTransporter({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  })
+}
 
 export async function sendInvoiceEmail(to, booking) {
+  if (!transporter) {
+    console.log('Email not configured - skipping email send')
+    return
+  }
+
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to,
@@ -26,8 +35,9 @@ export async function sendInvoiceEmail(to, booking) {
 
   try {
     await transporter.sendMail(mailOptions)
-    console.log('Email sent')
+    console.log('Email sent successfully to:', to)
   } catch (error) {
-    console.error('Email error:', error)
+    console.error('Email error:', error.message)
+    throw error
   }
 }
