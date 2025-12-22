@@ -63,12 +63,12 @@ export default function Navbar() {
         </div>
 
         <div className={`md:flex md:items-center md:space-x-2 ${menuOpen ? 'flex flex-col absolute top-20 left-0 w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 p-6 shadow-2xl space-y-2 md:space-y-0' : 'hidden md:flex'}`}>
-          <Link href="/" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold" onClick={() => setMenuOpen(false)}>🏠 Home</Link>
-          <button onClick={scrollToServices} className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold text-left">🔧 Services</button>
+          <Link href="/" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold text-white" onClick={() => setMenuOpen(false)}>🏠 Home</Link>
+          <button onClick={scrollToServices} className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold text-left text-white">🔧 Services</button>
           
           {session ? (
             <>
-              <Link href="/my-bookings" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold" onClick={() => setMenuOpen(false)}>📋 My Bookings</Link>
+              <Link href="/my-bookings" className="px-4 py-2 rounded-lg hover:bg-white hover:bg-opacity-20 transition-all duration-300 font-semibold text-white" onClick={() => setMenuOpen(false)}>📋 My Bookings</Link>
               
               {/* Desktop Profile Dropdown */}
               <div className="hidden md:block relative" ref={profileRef}>
@@ -115,7 +115,7 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link href="/login" className="px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 font-semibold" onClick={() => setMenuOpen(false)}>🔐 Login</Link>
+              <Link href="/login" className="px-4 py-2 rounded-lg bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 font-semibold text-white" onClick={() => setMenuOpen(false)}>🔐 Login</Link>
               <Link href="/register" className="px-5 py-2 rounded-lg bg-yellow-400 text-purple-900 hover:bg-yellow-300 transition-all duration-300 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5" onClick={() => setMenuOpen(false)}>✨ Get Started</Link>
             </>
           )}
