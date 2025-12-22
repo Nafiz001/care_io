@@ -9,17 +9,32 @@ export default function Home() {
   return (
     <div className="bg-gray-50">
       {/* Banner/Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-24">
-        <div className="container mx-auto text-center px-4">
-          <h1 className="text-5xl font-bold mb-6">Care for Your Loved Ones with Care.IO</h1>
-          <p className="text-2xl mb-8">Professional, Reliable, and Trusted Caregiving Services</p>
-          <p className="text-lg mb-10 max-w-3xl mx-auto">
-            Whether you need help with babysitting, elderly care, or special medical assistance, 
-            we connect you with verified and experienced caregivers who genuinely care.
-          </p>
-          <Link href="#services" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
-            Explore Our Services
-          </Link>
+      <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          backgroundSize: '30px 30px'
+        }}></div>
+        <div className="container mx-auto text-center px-4 relative z-10">
+          <div className="animate-fade-in">
+            <h1 className="text-6xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
+              Care for Your Loved Ones
+            </h1>
+            <p className="text-2xl md:text-3xl mb-4 font-semibold">with Care.IO</p>
+            <p className="text-xl md:text-2xl mb-8 font-light">Professional, Reliable, and Trusted Caregiving Services</p>
+            <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
+              💙 Whether you need help with babysitting, elderly care, or special medical assistance,<br/>
+              we connect you with verified and experienced caregivers who genuinely care.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="#services" className="bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 hover:scale-105 transition transform shadow-2xl">
+                🚀 Explore Our Services
+              </Link>
+              <Link href="/register" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-blue-600 transition shadow-2xl">
+                📝 Get Started Free
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
