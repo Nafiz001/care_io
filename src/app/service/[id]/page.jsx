@@ -86,9 +86,9 @@ export default async function ServiceDetail({ params }) {
           <div className="text-center">
             <Link 
               href={`/booking/${id}`} 
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 inline-block font-bold text-lg transition"
+              className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-10 py-5 rounded-full hover:from-indigo-700 hover:to-purple-700 inline-block font-bold text-xl transition shadow-xl hover:shadow-2xl hover:scale-105 transform"
             >
-              Book This Service Now
+              📅 Book This Service Now
             </Link>
           </div>
         </div>

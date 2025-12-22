@@ -9,10 +9,16 @@ export default function Home() {
   return (
     <div className="bg-gray-50">
       {/* Banner/Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 text-white py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
+      <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 text-white py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="absolute inset-0" style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
+          backgroundImage: 'url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2000&auto=format&fit=crop")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.15
+        }}></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.08"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
           backgroundSize: '30px 30px'
         }}></div>
         <div className="container mx-auto text-center px-4 relative z-10">
@@ -27,10 +33,10 @@ export default function Home() {
               we connect you with verified and experienced caregivers who genuinely care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#services" className="bg-white text-blue-600 px-10 py-5 rounded-full font-bold text-xl hover:bg-gray-100 hover:scale-105 transition transform shadow-2xl">
+              <Link href="#services" className="bg-yellow-400 text-purple-900 px-10 py-5 rounded-full font-bold text-xl hover:bg-yellow-300 hover:scale-105 transition transform shadow-2xl">
                 🚀 Explore Our Services
               </Link>
-              <Link href="/register" className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-blue-600 transition shadow-2xl">
+              <Link href="/register" className="bg-white text-purple-600 border-2 border-white px-10 py-5 rounded-full font-bold text-xl hover:bg-opacity-90 hover:scale-105 transition transform shadow-2xl">
                 📝 Get Started Free
               </Link>
             </div>
@@ -71,31 +77,31 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
           <p className="text-center text-gray-600 mb-12 text-lg">Choose the care service that best fits your needs</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div className="bg-white text-center p-8 border-2 border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-              <div className="text-5xl mb-4">👶</div>
-              <h3 className="text-2xl font-bold mb-4">Baby Care</h3>
+            <div className="bg-white text-center p-8 border-2 border-purple-200 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 hover:border-purple-400">
+              <div className="text-6xl mb-4 animate-bounce">👶</div>
+              <h3 className="text-2xl font-bold mb-4 text-purple-900">Baby Care</h3>
               <p className="text-gray-600 mb-6 min-h-[60px]">Professional babysitting services with trained caretakers who provide safe, fun, and nurturing care for your little ones.</p>
-              <div className="text-xl font-semibold text-blue-600 mb-6">500 BDT/day</div>
-              <Link href="/service/baby-care" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 inline-block font-semibold">
-                Learn More
+              <div className="text-2xl font-bold text-indigo-600 mb-6">500 BDT/day</div>
+              <Link href="/service/baby-care" className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full hover:from-indigo-700 hover:to-purple-700 inline-block font-bold shadow-lg hover:shadow-xl transition">
+                Learn More →
               </Link>
             </div>
-            <div className="bg-white text-center p-8 border-2 border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-              <div className="text-5xl mb-4">👵</div>
-              <h3 className="text-2xl font-bold mb-4">Elderly Care</h3>
+            <div className="bg-white text-center p-8 border-2 border-purple-200 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 hover:border-purple-400">
+              <div className="text-6xl mb-4 animate-bounce">👵</div>
+              <h3 className="text-2xl font-bold mb-4 text-purple-900">Elderly Care</h3>
               <p className="text-gray-600 mb-6 min-h-[60px]">Compassionate care for your elderly family members with assistance in daily activities and health monitoring.</p>
-              <div className="text-xl font-semibold text-blue-600 mb-6">600 BDT/day</div>
-              <Link href="/service/elderly-care" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 inline-block font-semibold">
-                Learn More
+              <div className="text-2xl font-bold text-purple-600 mb-6">600 BDT/day</div>
+              <Link href="/service/elderly-care" className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-full hover:from-purple-700 hover:to-pink-700 inline-block font-bold shadow-lg hover:shadow-xl transition">
+                Learn More →
               </Link>
             </div>
-            <div className="bg-white text-center p-8 border-2 border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-              <div className="text-5xl mb-4">🏥</div>
-              <h3 className="text-2xl font-bold mb-4">Sick People Care</h3>
+            <div className="bg-white text-center p-8 border-2 border-purple-200 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-2 hover:border-purple-400">
+              <div className="text-6xl mb-4 animate-bounce">🏥</div>
+              <h3 className="text-2xl font-bold mb-4 text-purple-900">Sick People Care</h3>
               <p className="text-gray-600 mb-6 min-h-[60px]">Specialized care for those who need medical attention with skilled caretakers for recovery and support.</p>
-              <div className="text-xl font-semibold text-blue-600 mb-6">700 BDT/day</div>
-              <Link href="/service/sick-care" className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 inline-block font-semibold">
-                Learn More
+              <div className="text-2xl font-bold text-pink-600 mb-6">700 BDT/day</div>
+              <Link href="/service/sick-care" className="bg-gradient-to-r from-pink-600 to-rose-600 text-white px-8 py-3 rounded-full hover:from-pink-700 hover:to-rose-700 inline-block font-bold shadow-lg hover:shadow-xl transition">
+                Learn More →
               </Link>
             </div>
           </div>

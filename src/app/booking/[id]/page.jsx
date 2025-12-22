@@ -177,9 +177,9 @@ export default function Booking({ params }) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-lg transition"
+              className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 rounded-full hover:from-indigo-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed font-bold text-xl transition shadow-xl hover:shadow-2xl"
             >
-              {loading ? 'Processing...' : 'Confirm Booking'}
+              {loading ? '⏳ Processing...' : '✅ Confirm Booking'}
             </button>
           </form>
         </div>

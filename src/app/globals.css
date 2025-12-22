@@ -36,6 +36,19 @@ body {
   }
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 1s ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
 }
