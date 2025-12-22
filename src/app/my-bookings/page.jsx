@@ -25,6 +25,17 @@ export default function MyBookings() {
     setBookings(data)
   }
 
+  const handleCancel = async (bookingId) => {
+    if (confirm('Are you sure you want to cancel this booking?')) {
+      await fetch('/api/booking/cancel', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bookingId })
+      })
+      fetchBookings() // refetch
+    }
+  }
+
   const getServiceName = (id) => {
     const service = services.find(s => s.id === id)
     return service ? service.name : 'Unknown'
@@ -46,8 +57,11 @@ export default function MyBookings() {
               <p>Location: {booking.location}</p>
               <p>Address: {booking.address}</p>
               <p>Total Cost: {booking.totalCost} BDT</p>
-              <p>Status: <span className={`font-semibold ${booking.status === 'pending' ? 'text-yellow-600' : booking.status === 'confirmed' ? 'text-green-600' : 'text-blue-600'}`}>{booking.status}</span></p>
+              <p>Status: <span className={`font-semibold ${booking.status === 'pending' ? 'text-yellow-600' : booking.status === 'confirmed' ? 'text-green-600' : booking.status === 'cancelled' ? 'text-red-600' : 'text-blue-600'}`}>{booking.status}</span></p>
               <p>Created: {new Date(booking.createdAt).toLocaleDateString()}</p>
+              {booking.status === 'pending' && (
+                <button onClick={() => handleCancel(booking.id)} className="mt-2 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Cancel Booking</button>
+              )}
             </div>
           ))}
         </div>

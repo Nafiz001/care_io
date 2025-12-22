@@ -53,6 +53,14 @@ export default function Login() {
         {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
       </form>
+      <div className="mt-4">
+        <button
+          onClick={() => signIn('google')}
+          className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+        >
+          Login with Google
+        </button>
+      </div>
       <p className="mt-4 text-center">Don't have an account? <Link href="/register" className="text-blue-600">Register</Link></p>
     </div>
   )

@@ -1,10 +1,5 @@
 import Link from 'next/link'
 
-export const metadata = {
-  title: "Care.IO - Home",
-  description: "Reliable and trusted care services for children, elderly, and family members. Book babysitting, elderly care, and special care services easily."
-}
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
