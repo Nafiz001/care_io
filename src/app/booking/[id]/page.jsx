@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { use, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { services } from '@/lib/data'
@@ -8,6 +8,7 @@ import { services } from '@/lib/data'
 const divisions = ['Dhaka', 'Chittagong', 'Rajshahi', 'Khulna', 'Barisal', 'Sylhet', 'Rangpur']
 
 export default function Booking({ params }) {
+  const { id } = use(params)
   const { data: session, status } = useSession()
   const router = useRouter()
   const [form, setForm] = useState({
@@ -21,14 +22,14 @@ export default function Booking({ params }) {
   const [totalCost, setTotalCost] = useState(0)
   const [loading, setLoading] = useState(false)
 
-  const service = services.find(s => s.id === params.id)
+  const service = services.find(s => s.id === id)
 
   useEffect(() => {
     if (status === 'loading') return
     if (!session) {
-      router.push(`/login?redirect=/booking/${params.id}`)
+      router.push(`/login?redirect=/booking/${id}`)
     }
-  }, [session, status, router, params.id])
+  }, [session, status, router, id])
 
   useEffect(() => {
     if (service) {
@@ -43,7 +44,7 @@ export default function Booking({ params }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!session?.user?.id) {
-      router.push(`/login?redirect=/booking/${params.id}`)
+      router.push(`/login?redirect=/booking/${id}`)
       return
     }
     setLoading(true)
@@ -53,7 +54,7 @@ export default function Booking({ params }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          serviceId: params.id,
+          serviceId: id,
           duration: form.duration,
           location,
           address: form.address,
