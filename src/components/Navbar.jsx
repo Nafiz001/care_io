@@ -121,7 +121,7 @@ export default function Navbar() {
             </>
           ) : (
             // Loading state - show nothing to prevent flash
-            <div className="w-20 h-8 bg-white bg-opacity-20 rounded-lg animate-pulse"></div>
+            <div className="w-20 h-8 bg-white bg-opacity-20 rounded-full animate-pulse"></div>
           )}
         </div>
       </div>
