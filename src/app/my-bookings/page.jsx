@@ -162,15 +162,25 @@ export default function MyBookings() {
                     </div>
                   </div>
 
-                  {booking.status === 'pending' && (
+                  <div className="flex gap-3 mt-4">
                     <button 
-                      onClick={() => handleCancel(booking.id)} 
-                      className="w-full mt-4 bg-red-500 text-white px-4 py-3 rounded-xl hover:bg-red-600 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+                      onClick={() => alert(`Booking Details:\n\nService: ${booking.serviceName}\nDuration: ${booking.duration} days\nLocation: ${booking.location}\nAddress: ${booking.address}\nTotal Cost: ${booking.totalCost} BDT\nStatus: ${booking.status}\nBooked On: ${new Date(booking.createdAt).toLocaleDateString()}`)} 
+                      className="flex-1 bg-blue-500 text-white px-4 py-3 rounded-xl hover:bg-blue-600 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
                     >
-                      <span>❌</span>
-                      <span>Cancel Booking</span>
+                      <span>👁️</span>
+                      <span>View Details</span>
                     </button>
-                  )}
+
+                    {booking.status === 'pending' && (
+                      <button 
+                        onClick={() => handleCancel(booking.id)} 
+                        className="flex-1 bg-red-500 text-white px-4 py-3 rounded-xl hover:bg-red-600 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+                      >
+                        <span>❌</span>
+                        <span>Cancel Booking</span>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

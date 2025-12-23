@@ -9,30 +9,59 @@ export default function Home() {
   return (
     <div className="bg-gray-50">
       {/* Banner/Hero Section */}
-      <section className="relative bg-indigo-600 text-white overflow-hidden flex items-center" style={{ minHeight: '70vh' }}>
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2000&auto=format&fit=crop")',
+      <section className="relative overflow-hidden flex items-center" style={{ minHeight: '70vh' }}>
+        {/* Professional care services background image */}
+        <div className="absolute inset-0 opacity-90" style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?q=80&w=2000&auto=format&fit=crop")',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.2
+          backgroundPosition: 'center'
         }}></div>
+        
+        {/* Modern gradient overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
         <div className="container mx-auto text-center px-4 relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-6xl md:text-7xl font-extrabold mb-6 drop-shadow-lg">
-              Care for Your Loved Ones
+            <div className="mt-4 inline-block mb-4 px-6 py-2 bg-yellow-400/20 backdrop-blur-sm rounded-full border border-yellow-400/50">
+              <span className="text-yellow-300 font-semibold text-sm tracking-wider">TRUSTED CARE SERVICES</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-extrabold  mb-6 text-blue-200 leading-tight">
+              Professional Care for<br/>
+              <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">Your Loved Ones</span>
             </h1>
-            <p className="text-2xl md:text-3xl mb-4 font-semibold">with Care.IO</p>
-            <p className="text-xl md:text-2xl mb-8 font-light">Professional, Reliable, and Trusted Caregiving Services</p>
-            <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
-              💙 Whether you need help with babysitting, elderly care, or special medical assistance,<br/>
-              we connect you with verified and experienced caregivers who genuinely care.
+            
+            <p className="text-xl md:text-2xl mb-8 text-gray-100 max-w-3xl mx-auto font-light leading-relaxed">
+              Connect with verified and experienced caregivers for babysitting, elderly care, and medical assistance
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#services" className="bg-yellow-400 text-purple-900 px-10 py-5 rounded-full font-bold text-xl hover:bg-yellow-300 hover:scale-105 transition transform shadow-2xl">
+            
+            <div className="flex flex-wrap gap-8 justify-center mb-10 text-white">
+              <div className="flex items-center space-x-2">
+                <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                </svg>
+                <span className="font-medium">24/7 Support</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                </svg>
+                <span className="font-medium">Verified Caregivers</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                </svg>
+                <span className="font-medium">Instant Booking</span>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+              <Link href="#services" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-10 py-5 rounded-full font-bold text-xl hover:from-yellow-300 hover:to-orange-400 hover:scale-105 transition-all transform shadow-2xl hover:shadow-yellow-500/50">
                 🚀 Explore Our Services
               </Link>
-              <Link href="/register" className="bg-white text-purple-600 border-2 border-white px-10 py-5 rounded-full font-bold text-xl hover:bg-opacity-90 hover:scale-105 transition transform shadow-2xl">
-                📝 Get Started Free
+              <Link href="/register" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/50 px-10 py-5 rounded-full font-bold text-xl hover:bg-white/20 hover:scale-105 transition-all transform shadow-2xl">
+                ✨ Get Started Free
               </Link>
             </div>
           </div>
@@ -40,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-10 bg-white">
         <div className="container mx-auto text-center px-4">
           <h2 className="text-4xl font-bold mb-6">About Care.IO</h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-12">
